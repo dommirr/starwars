@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
-import LinkMovie from 'components/LinkMovie';
 import SwapiService from 'services/SwapiService';
+import { Link } from "react-router-dom";
 
-const MovieDetails = () => {
-  const { id } = useParams();
+import './styles.css';
 
+const LinkMovie = ({ id }) => {
   const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -20,16 +19,13 @@ const MovieDetails = () => {
     fetchMovie();
   }, [id]);
   if (loading) return (
-    <h2>loading...</h2>
+    <p>loading...</p>
   );
   return (
-    <div className="card-body">
-      <h2>{movie.title}</h2>
-      <p>{movie.description}</p>
-      <p>Productor: {movie.producer}</p>
-      <p>Director: {movie.director}</p>
-    </div>
-  );
+    <p>
+      <Link to={`/movies/${id}`}>{movie.title}</Link>
+    </p>
+  )
 }
 
-export default MovieDetails;
+export default LinkMovie;

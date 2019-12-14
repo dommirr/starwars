@@ -1,15 +1,18 @@
 .movies {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
 }
 
 .movies-content {
   display: flex;
-  border-left: 1px solid #CCC;
+  height: 100%;
   flex: 3;
 }
 
 .movies-leftpanel {
   display: flex;
   flex: 1;
+  flex-direction: column;
+  min-height: 100%;
 }

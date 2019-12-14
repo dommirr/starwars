@@ -1,9 +1,15 @@
 import React from 'react';
 
-const Filter = () => {
+const Filter = ({ onChange, value, placeholder }) => {
   return (
-    <div className="form-group">
-      <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Buscar" aria-describedby="emailHelp" />
+    <div className="form-group  mb-0">
+      <input
+        onChange={(event) => onChange(event.target.value)}
+        type="text"
+        value={value}
+        className="form-control"
+        placeholder={placeholder}
+      />
     </div>
   )
 }
