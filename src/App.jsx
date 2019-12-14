@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Nav from './components/Nav';
-import Movies from './components/Movies';
-import Characters from './components/Characters';
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import Nav from 'components/Nav';
+import Movies from 'components/Movies';
+import Characters from 'components/Characters';
 import './App.css';
 
 const App = () => (
@@ -14,6 +14,9 @@ const App = () => (
         </div>
         <div className="col-md-10">
           <Switch>
+            <Route exact path="/">
+              <Redirect to="/movies" />
+            </Route>
             <Route path="/movies">
               <Movies />
             </Route>

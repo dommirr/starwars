@@ -1,20 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Switch, Route, Link } from "react-router-dom";
-import MovieDetails from '../MovieDetails';
+import MovieDetails from 'components/MovieDetails';
+import Filter from 'components/Filter';
 import './styles.css';
 
+const getIdFromUrl = (url) => url.substring(url.length - 2, url.length);
+
 const Movies = () => {
+  const [movies, setMovies] = useState([]);
+
+  // De forma similar a componentDidMount y componentDidUpdate
+  useEffect(() => {
+    if (movies.length === 0) {
+      fetch('https://swapi.co/api/films/')
+        .then(response => response.json())
+        .then(json => setMovies(json.results))
+    }
+  });
   return (
     <div className="card movies">
       <div className="movies-leftpanel">
         <div className="list-group list-group-flush">
           <div className="list-group-item">
-            <div className="form-group">
-              <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Buscar" aria-describedby="emailHelp" />
-            </div>
+            <Filter />
           </div>
-          <Link to="/movies/1" className="list-group-item list-group-item-action">Movie 1</Link>
-          <Link to="/movies/2" className="list-group-item list-group-item-action">Movie 2</Link>
+          {
+            movies.map((movie) => (
+              <Link
+                to={`/movies/${getIdFromUrl(movie.url)}`}
+                className="list-group-item list-group-item-action">
+                {movie.title}
+              </Link>
+            ))
+          }
         </div>
       </div>
       <div className="movies-content">

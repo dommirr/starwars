@@ -6,9 +6,10 @@
 .movies-content {
   display: flex;
   border-left: 1px solid #CCC;
+  flex: 3;
 }
 
 .movies-leftpanel {
   display: flex;
-
+  flex: 1;
 }
