@@ -1,0 +1,14 @@
+.movies {
+  display: flex;
+  flex-direction: row;
+}
+
+.movies-content {
+  display: flex;
+  border-left: 1px solid #CCC;
+}
+
+.movies-leftpanel {
+  display: flex;
+
+}
