@@ -1,0 +1,40 @@
+body {
+  background: #292726;
+  color: white;
+ }
+ 
+ .AppTemplate {
+   display: flex;
+   max-width: 1200px;
+   margin: 0 auto;
+   min-height: 100vh;
+   border-left: 1px solid #343434;
+   border-right: 1px solid #343434;
+ }
+ 
+ .content-left-panel {
+   border-right: 1px solid #343434;
+   width: 350px;
+   min-height: 100vh;
+ 
+ }
+ 
+ .content-content {
+   min-height: 100vh;
+   flex: 1;
+ }
+ 
+ .search-input {
+   padding: 20px;
+   border-bottom: 1px solid #343434;
+ }
+ 
+ .search-input input{
+   background: transparent;
+   border: none;
+   width: 100%;
+   color: white;
+   outline: none;
+   font-size: 16px;
+ }
+ 

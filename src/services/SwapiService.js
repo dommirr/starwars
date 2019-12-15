@@ -36,6 +36,8 @@ const getMovieById = async (id) => {
     director: data.director,
     description: data.opening_crawl,
     id: id,
+    release_date: data.release_date,
+    episode_id: data.episode_id,
   });
 };
 
@@ -45,12 +47,16 @@ const getCharacterById = async (id) => {
   const idLinks = getIdsFromCharacters(data.films);
 
   return ({
+    skin_color: data.skin_color,
     name: data.name,
     eye_color: data.eye_color,
     height: data.height,
     mass: data.mass,
     id: id,
-    movies: idLinks
+    movies: idLinks,
+    birth_year: data.birth_year,
+    gender: data.gender,
+    hair_color: data.hair_color,
   });
 };
 

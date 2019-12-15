@@ -19,7 +19,7 @@ const LinkMovie = ({ id }) => {
     fetchMovie();
   }, [id]);
   if (loading) return (
-    <p>loading...</p>
+    <p>cargando...</p>
   );
   return (
     <p>

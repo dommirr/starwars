@@ -17,7 +17,21 @@
   min-height: 100%;
 }
 
-.panel-list {
-  max-height: 70vh;
+.AppTemplate-navbar {
+  max-height: 100vh;
   overflow: auto;
+}
+
+.content-loading {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.navbar-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

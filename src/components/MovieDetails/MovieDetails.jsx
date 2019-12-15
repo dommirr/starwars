@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import SwapiService from 'services/SwapiService';
+import Loading from 'components/Loading';
+import DetailsLayout from 'components/DetailsLayout';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -19,15 +21,34 @@ const MovieDetails = () => {
     fetchMovie();
   }, [id]);
   if (loading) return (
-    <h2>loading...</h2>
-  );
-  return (
-    <div className="card-body">
-      <h2>{movie.title}</h2>
-      <p>{movie.description}</p>
-      <p>Productor: {movie.producer}</p>
-      <p>Director: {movie.director}</p>
+    <div className="content-loading">
+      <Loading />
     </div>
+  );
+  const details = [
+    {
+      label: 'Director',
+      value: movie.director,
+    },
+    {
+      label: 'Productor',
+      value: movie.producer,
+    },
+    {
+      label: 'Año de estreno',
+      value: movie.release_date,
+    },
+    {
+      label: 'Numero de episodio',
+      value: movie.episode_id,
+    },
+  ];
+  return (
+    <DetailsLayout
+      title={movie.title}
+      details={details}
+      description={movie.description}
+    />
   );
 }
 

@@ -1,0 +1,45 @@
+.banner {
+  height: 150px;
+  background: #F7DD38;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.title {
+  color: #292726;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.details-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.details-item {
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.item-text {
+  font-size: 22px;
+}
+
+.item-label {
+  color: #ccc;
+}
+.details-links {
+  margin-top: 10px;
+}
+
+.details-links a {
+  color: #F7DD38;
+  text-decoration: none;
+}
+
+
+.info {
+  padding: 20px;
+}

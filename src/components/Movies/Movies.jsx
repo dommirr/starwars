@@ -4,6 +4,7 @@ import MovieDetails from 'components/MovieDetails';
 import Filter from 'components/Filter';
 import CustomLink from 'components/CustomLink';
 import Layout from 'components/Layout';
+import Message from 'components/Message';
 
 const Movies = ({ movies, status, fetchMovies, loading }) => {
   const [filterBy, setFilterBy] = useState('');
@@ -43,6 +44,9 @@ const Movies = ({ movies, status, fetchMovies, loading }) => {
       <Switch>
         <Route path="/movies/:id">
           <MovieDetails />
+        </Route>
+        <Route exact path="/movies">
+          <Message />
         </Route>
       </Switch>
     </Layout>

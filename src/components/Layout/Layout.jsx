@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from 'components/Loading';
 import './styles.css';
 
 const Layout = ({
@@ -8,23 +9,21 @@ const Layout = ({
   onPanelScroll = () => { },
   children,
 }) => (
-    <div className="card layout">
-      <div className="layout-leftpanel border-right">
-        <div className="card-body border-bottom">
+    <div className="content">
+      <div className="content-left-panel">
+        <div className="search-input">
           {panelHeader}
         </div>
-        <div
-          onScroll={onPanelScroll}
-          className="list-group list-group-flush panel-list">
+        <div className="AppTemplate-navbar" onScroll={onPanelScroll}>
           {panelList}
           {panelListLoading && (
-            <div className="list-group-item">loading...</div>
+            <div className="navbar-item navbar-loading">
+              <Loading />
+            </div>
           )}
         </div>
       </div>
-      <div className="layout-content">
-        {children}
-      </div>
+      {children}
     </div>
   );
 

@@ -1,19 +1,11 @@
 import React from 'react';
+import './styles.css';
 
-const AppLAyout = ({
-  leftPanel,
-  children,
-}) => (
-    <div className="container mt-5">
-      <div className="row">
-        <div className="col-md-2">
-          {leftPanel}
-        </div>
-        <div className="col-md-10">
-          {children}
-        </div>
-      </div>
-    </div>
-  );
+const AppTemplate = ({ leftPanel, children }) => (
+  <div className="AppTemplate">
+    {leftPanel}
+    {children}
+  </div>
+);
 
-export default AppLAyout;
+export default AppTemplate;

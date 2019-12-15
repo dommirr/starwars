@@ -4,6 +4,7 @@ import CharacterDetails from 'components/CharacterDetails';
 import Filter from 'components/Filter';
 import CustomLink from 'components/CustomLink';
 import Layout from 'components/Layout';
+import Message from 'components/Message';
 
 let timer;
 const Characters = ({ characters, loading, fetchCharacters, fetchSearchCharacters, charactersFiltered, count }) => {
@@ -62,6 +63,10 @@ const Characters = ({ characters, loading, fetchCharacters, fetchSearchCharacter
       onPanelScroll={handleScroll}
     >
       <Switch>
+
+        <Route exact path="/characters">
+          <Message />
+        </Route>
         <Route path="/characters/:id">
           <CharacterDetails />
         </Route>

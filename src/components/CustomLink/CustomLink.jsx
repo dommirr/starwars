@@ -8,7 +8,7 @@ const CustomLink = ({ children, to, activeOnlyWhenExact = false }) => {
   });
 
   return (
-    <Link className={`list-group-item list-group-item-action ${match ? 'active' : ''}`} to={to}>{children}</Link>
+    <Link className={`navbar-item ${match ? 'active' : ''}`} to={to}>{children}</Link>
   );
 }
 
