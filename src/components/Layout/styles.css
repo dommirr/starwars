@@ -1,18 +1,23 @@
-.movies {
+.layout {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
 }
 
-.movies-content {
+.layout-content {
   display: flex;
   height: 100%;
   flex: 3;
 }
 
-.movies-leftpanel {
+.layout-leftpanel {
   display: flex;
   flex: 1;
   flex-direction: column;
   min-height: 100%;
+}
+
+.panel-list {
+  max-height: 70vh;
+  overflow: auto;
 }

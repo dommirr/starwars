@@ -1,33 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import Nav from 'components/Nav';
-import Movies from 'components/Movies';
-import Characters from 'components/Characters';
-import './App.css';
+
+import { Provider } from 'react-redux';
+import store from 'store';
+
+import AppRouter from 'AppRouter';
 
 const App = () => (
-  <Router>
-    <div className="container mt-5">
-      <div className="row">
-        <div className="col-md-2">
-          <Nav />
-        </div>
-        <div className="col-md-10">
-          <Switch>
-            <Route exact path="/">
-              <Redirect to="/movies" />
-            </Route>
-            <Route path="/movies">
-              <Movies />
-            </Route>
-            <Route path="/characters">
-              <Characters />
-            </Route>
-          </Switch>
-        </div>
-      </div>
-    </div>
-  </Router>
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
 );
 
 export default App;

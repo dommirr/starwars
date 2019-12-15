@@ -3,9 +3,11 @@ import { Switch, Route } from "react-router-dom";
 import CharacterDetails from 'components/CharacterDetails';
 import Filter from 'components/Filter';
 import CustomLink from 'components/CustomLink';
+import Layout from 'components/Layout';
 import SwapiService from 'services/SwapiService';
-import './styles.css';
 
+
+let timer;
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
   const [charactersFiltered, setCharactersFiltered] = useState([]);
@@ -51,46 +53,46 @@ const Characters = () => {
   }
 
   const onChangeFilter = (text) => {
+    if (timer) {
+      clearTimeout(timer);
+    }
     setFilterBy(text);
-    getCharactersFiltered(text);
+    timer = setTimeout(() => {
+      getCharactersFiltered(text);
+    }, 500);
   }
 
   const charactersToShow = filterBy === '' ? characters : charactersFiltered;
 
+  const panelHeader = (
+    <Filter
+      onChange={onChangeFilter} value={filterBy}
+      placeholder="buscar en personajes"
+    />
+  );
+
+  const panelList = charactersToShow.map((character) => (
+    <CustomLink
+      key={character.id}
+      to={`/characters/${character.id}`}>
+      {character.name}
+    </CustomLink>
+  ));
+
   return (
-    <div className="card movies">
-      <div className="movies-leftpanel  border-right">
-        <div className="card-body border-bottom">
-          <Filter placeholder="buscar personaje" onChange={onChangeFilter} value={filterBy} />
-        </div>
-        <div className="list-group list-group-flush characters-list" onScroll={handleScroll}>
-
-          {
-            charactersToShow.map((character) => (
-              <CustomLink
-                key={character.id}
-                to={`/characters/${character.id}`}>
-                {character.name}
-              </CustomLink>
-            ))
-          }
-          {
-            loading && (
-              <div className="list-group-item list-group-item-action">loading...</div>
-            )
-          }
-
-        </div>
-      </div>
-      <div className="movies-content">
-        <Switch>
-          <Route path="/characters/:id">
-            <CharacterDetails />
-          </Route>
-        </Switch>
-      </div>
-    </div>
-  )
-}
+    <Layout
+      panelHeader={panelHeader}
+      panelList={panelList}
+      panelListLoading={loading}
+      onPanelScroll={handleScroll}
+    >
+      <Switch>
+        <Route path="/characters/:id">
+          <CharacterDetails />
+        </Route>
+      </Switch>
+    </Layout>
+  );
+};
 
 export default Characters;

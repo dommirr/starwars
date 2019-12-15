@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import LinkMovie from 'components/LinkMovie';
 import SwapiService from 'services/SwapiService';
 
 const MovieDetails = () => {
