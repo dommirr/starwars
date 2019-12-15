@@ -11,7 +11,7 @@ const initialState = {
   list: [],
   list_filtered: [],
   count: 0,
-  page: 1,
+  page: 0,
   details: {
     status: '',
     loading: false,
