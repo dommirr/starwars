@@ -9,7 +9,9 @@ const Movies = ({ movies, status, fetchMovies, loading }) => {
   const [filterBy, setFilterBy] = useState('');
 
   useEffect(() => {
-    fetchMovies();
+    if (movies.length === 0) {
+      fetchMovies();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

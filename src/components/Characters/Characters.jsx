@@ -12,7 +12,10 @@ const Characters = ({ characters, loading, fetchCharacters, fetchSearchCharacter
 
   // De forma similar a componentDidMount y componentDidUpdate
   useEffect(() => {
-    fetchCharacters()
+    if (characters.length === 0) {
+      fetchCharacters()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleScroll = (e) => {
