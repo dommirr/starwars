@@ -4,52 +4,24 @@ import CharacterDetails from 'components/CharacterDetails';
 import Filter from 'components/Filter';
 import CustomLink from 'components/CustomLink';
 import Layout from 'components/Layout';
-import SwapiService from 'services/SwapiService';
-
 
 let timer;
-const Characters = () => {
-  const [characters, setCharacters] = useState([]);
-  const [charactersFiltered, setCharactersFiltered] = useState([]);
-  const [page, setPage] = useState(1);
-  const [count, setCount] = useState(0);
-  const [loading, setLoading] = useState(false);
+const Characters = ({ characters, loading, fetchCharacters, fetchSearchCharacters, charactersFiltered, count }) => {
+
   const [filterBy, setFilterBy] = useState('');
 
   // De forma similar a componentDidMount y componentDidUpdate
   useEffect(() => {
-    const fecthCharacters = async () => {
-      if (characters.length === 0) {
-        setLoading(true);
-        const { characters, count } = await SwapiService.getCharacters();
-        setLoading(false);
-        setCharacters(characters);
-        setCount(count);
-      }
-    };
-    fecthCharacters();
-  });
-
-  const addPage = async () => {
-    setLoading(true);
-    const { characters: newCharacters } = await SwapiService.getCharacters(page + 1);
-    setLoading(false);
-    setCharacters([...characters, ...newCharacters]);
-    setPage(page + 1);
-  }
+    fetchCharacters()
+  }, []);
 
   const handleScroll = (e) => {
     let element = e.target
     if (element.scrollHeight - element.scrollTop === element.clientHeight) {
       if (count !== characters.length) {
-        addPage();
+        fetchCharacters();
       }
     }
-  }
-
-  const getCharactersFiltered = async (text) => {
-    const { characters } = await SwapiService.getSearchCharacters(text);
-    setCharactersFiltered(characters);
   }
 
   const onChangeFilter = (text) => {
@@ -58,7 +30,7 @@ const Characters = () => {
     }
     setFilterBy(text);
     timer = setTimeout(() => {
-      getCharactersFiltered(text);
+      fetchSearchCharacters(text);
     }, 500);
   }
 
