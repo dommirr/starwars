@@ -28,7 +28,7 @@ const CharacterDetails = () => {
 
   const details = [
     {
-      label: 'Altura',
+      label: 'Altura (cm)',
       value: character.height
     },
     {
@@ -48,10 +48,10 @@ const CharacterDetails = () => {
       value: character.skin_color
     },
     {
-      label: 'Peso',
+      label: 'Peso (kg)',
       value: character.mass
     }, {
-      label: 'Añi de nacimientp',
+      label: 'Año de nacimiento',
       value: character.birth_year
     }
   ];

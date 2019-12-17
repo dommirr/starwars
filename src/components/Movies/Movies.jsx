@@ -27,7 +27,7 @@ const Movies = ({ movies, status, fetchMovies, loading }) => {
   const panelHeader = (
     <Filter
       onChange={onChangeFilter} value={filterBy}
-      placeholder="buscar en peliculas"
+      placeholder="Buscar en peliculas"
     />
   );
 

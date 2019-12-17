@@ -35,11 +35,11 @@ const MovieDetails = () => {
       value: movie.producer,
     },
     {
-      label: 'Año de estreno',
+      label: 'Fecha de estreno',
       value: movie.release_date,
     },
     {
-      label: 'Numero de episodio',
+      label: 'Episodio número',
       value: movie.episode_id,
     },
   ];

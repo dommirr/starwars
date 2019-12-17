@@ -6,7 +6,7 @@ const Message = () => {
   return (
     <div className="content-message">
       <Image />
-      <div className="item-text">Seleccione una opcion en la lista</div>
+      <div className="item-text">Seleccione una opción en la lista</div>
     </div>
   )
 }

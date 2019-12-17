@@ -43,7 +43,7 @@ const Characters = ({ characters, loading, fetchCharacters, fetchSearchCharacter
   const panelHeader = (
     <Filter
       onChange={onChangeFilter} value={filterBy}
-      placeholder="buscar en personajes"
+      placeholder="Buscar en personajes"
     />
   );
 
