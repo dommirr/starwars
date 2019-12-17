@@ -8,7 +8,7 @@ The demo is hosted in netlify service.
 [StarWars Finder](https://starwars-finder.netlify.com/)
 
 <p align="center">
-    <img align="center" src="src/logo.png" alt="React Mini Mural" width="150" style="padding: 10px; background: #2C2D2D;">
+    <img align="center" src="public/favicon-2.png" alt="starwars finder" width="150" >
 </p>
 
 
