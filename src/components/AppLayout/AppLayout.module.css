@@ -1,0 +1,41 @@
+.AppLayout {
+   display: flex;
+   max-width: 1200px;
+   margin: 0 auto;
+   min-height: 100vh;
+   border-left: 1px solid #343434;
+   border-right: 1px solid #343434;
+ }
+
+.leftPanel {
+  flex: 1;
+  background-color: #2C2D2D;
+  min-height: 100vh;
+  border-right: 1px solid #343434;
+}
+
+.content {
+  flex: 3;
+  display: flex;
+  background-color: #2C2D2D;
+  flex-direction: row;
+}
+
+.active {
+  display: flex;
+}
+
+@media (max-width: 425px) {  
+  .content {
+    display: none;
+  }
+
+  .leftPanel {
+    display: none;
+  }
+  
+  .active {
+    display: flex;
+  }
+}
+ 

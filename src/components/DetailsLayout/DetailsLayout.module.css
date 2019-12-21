@@ -1,0 +1,56 @@
+.DetailsLayoutBanner {
+  height: 150px;
+  background: #F7DD38;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.DetailsLayoutBannerBack {
+  display: none;
+  position: absolute;
+  top: 20px;
+}
+
+.DetailsLayoutBannerTitle {
+  color: #292726;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.DetailsLayoutBannerContent {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.DetailsLayoutBannerItem {
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.DetailsLayoutBannerItemText {
+  font-size: 22px;
+}
+
+.DetailsLayoutBannerItemLabel {
+  color: #ccc;
+}
+.DetailsLayoutBannerDetailsLink {
+  margin-top: 10px;
+}
+
+.DetailsLayoutBannerDetailsLink a {
+  color: #F7DD38;
+  text-decoration: none;
+}
+
+.DetailsLayoutBannerInfo {
+  padding: 20px;
+}
+
+@media (max-width: 768px) {  
+  .DetailsLayoutBannerBack {
+    display: block;
+  }
+}

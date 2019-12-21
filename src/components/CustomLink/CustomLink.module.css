@@ -1,0 +1,15 @@
+.CustomLink {
+  padding: 15px;
+  border-bottom: 1px solid #343434;
+  border-left: 4px solid #2C2D2D;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  
+}
+
+.active {
+  border-right: 4px solid yellow;
+}
