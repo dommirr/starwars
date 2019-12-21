@@ -34,7 +34,7 @@ const Layout = ({
           )}
         </div>
       </div>
-      <div className={`Layout-leftPanel ${isDetail ? 'active' : ''} `}>
+      <div className={`Layout-content ${isDetail ? 'active' : ''} `}>
         {children}
       </div>
     </div>

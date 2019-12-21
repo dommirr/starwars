@@ -1,9 +1,12 @@
 .logo {
+  display: flex;
+  justify-content: center;
   padding: 20px;
 }
 
 .logo-img {
   width: 100%;
+  max-width: 150px;
 }
 
 .Nav {
