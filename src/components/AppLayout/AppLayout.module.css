@@ -2,7 +2,8 @@
    display: flex;
    max-width: 1200px;
    margin: 0 auto;
-   min-height: 100vh;
+   height: 100vh;
+   overflow: hidden;
    border-left: 1px solid #343434;
    border-right: 1px solid #343434;
  }

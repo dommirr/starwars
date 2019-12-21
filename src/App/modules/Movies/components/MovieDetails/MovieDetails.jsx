@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import SwapiService from 'services/SwapiService';
 import ContentLoading from 'components/ContentLoading';
 import DetailsLayout from 'components/DetailsLayout';
 
-const MovieDetails = () => {
+const MovieDetails = ({ movie, loading, error, fetchMovieDetail }) => {
   const { id } = useParams();
-  const [movie, setMovie] = useState([]);
-  const [loading, setLoading] = useState(false);
 
-  // De forma similar a componentDidMount y componentDidUpdate
   useEffect(() => {
-    setLoading(true);
-    const fetchMovie = async () => {
-      const movie = await SwapiService.getMovieById(id);
-      setLoading(false);
-      setMovie(movie);
-    };
-    fetchMovie();
-  }, [id]);
+    fetchMovieDetail(id);
+  }, [id, fetchMovieDetail]);
+
+
   if (loading) return (
     <ContentLoading />
   );
+
   const details = [
     {
       label: 'Director',
@@ -40,6 +33,7 @@ const MovieDetails = () => {
       value: movie.episode_id,
     },
   ];
+
   return (
     <DetailsLayout
       title={movie.title}

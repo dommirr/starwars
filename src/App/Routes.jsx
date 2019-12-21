@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 
 import AppLayout from 'components/AppLayout';
 import Nav from 'components/Nav';
-import Movies from 'components/Movies';
-import Characters from 'components/Characters';
+
+import { Movies, Characters } from './modules';
+
 import { isMobile } from 'utils';
 
 const AppRouter = () => (

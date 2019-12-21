@@ -16,7 +16,8 @@
 .Layout-content {
   display: flex;
   flex: 2;
-  min-height: 100%;
+  height: 100vh;
+  overflow: auto;
 }
 
 .Layout-leftPanel-search {
@@ -27,7 +28,7 @@
 }
 
 .Layout-leftPanel-navbar {
-  max-height: 500px;
+  height: calc(100vh - 63px);
   overflow: auto;
 }
 

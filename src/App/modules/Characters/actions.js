@@ -28,9 +28,11 @@ export const fetchCharactersError = () => ({
 });
 
 export const fetchCharacters = () => async (dispatch, getState) => {
-  dispatch(fetchCharactersStart());
   const state = getState();
-  const { page } = state.characters;
+  const { page, count, list } = state.characters;
+  if (count === list.length) return null;
+
+  dispatch(fetchCharactersStart());
   try {
     const { characters, count } = await SwapiService.getCharacters(page + 1);
     dispatch(fetchCharactersSuccess(characters, count, page + 1));

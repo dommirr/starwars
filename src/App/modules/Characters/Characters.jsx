@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route } from "react-router-dom";
-import CharacterDetails from 'components/CharacterDetails';
+import CharacterDetails from './components/CharacterDetails';
 import Filter from 'components/Filter';
 import CustomLink from 'components/CustomLink';
 import Layout from 'components/Layout';
@@ -11,22 +11,11 @@ const Characters = ({ characters, loading, fetchCharacters, fetchSearchCharacter
 
   const [filterBy, setFilterBy] = useState('');
 
-  // De forma similar a componentDidMount y componentDidUpdate
   useEffect(() => {
     if (characters.length === 0) {
       fetchCharacters()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const handleScroll = (e) => {
-    let element = e.target
-    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-      if (count !== characters.length) {
-        fetchCharacters();
-      }
-    }
-  }
+  }, [fetchCharacters, characters]);
 
   const onChangeFilter = (text) => {
     if (timer) {
@@ -60,10 +49,9 @@ const Characters = ({ characters, loading, fetchCharacters, fetchSearchCharacter
       panelHeader={panelHeader}
       panelList={panelList}
       panelListLoading={loading}
-      onPanelScroll={handleScroll}
+      onPanelScroll={fetchCharacters}
     >
       <Switch>
-
         <Route exact path="/characters">
           <Message />
         </Route>

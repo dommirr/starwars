@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route } from "react-router-dom";
-import MovieDetails from 'components/MovieDetails';
+import MovieDetails from './components/MovieDetails';
 import Filter from 'components/Filter';
 import CustomLink from 'components/CustomLink';
 import Layout from 'components/Layout';
 import Message from 'components/Message';
 
-const Movies = ({ movies, status, fetchMovies, loading }) => {
+const Movies = ({ movies, error, fetchMovies, loading }) => {
   const [filterBy, setFilterBy] = useState('');
 
   useEffect(() => {
     if (movies.length === 0) {
       fetchMovies();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchMovies, movies]);
 
   const onChangeFilter = (filterBy) => setFilterBy(filterBy);
 
