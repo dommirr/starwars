@@ -1,35 +1,39 @@
 import React from 'react';
 import LinkMovie from 'components/LinkMovie';
-import './styles.css';
+import Back from 'components/Back';
+import style from './DetailsLayout.module.css';
 
 const DetailsLayout = ({ title, description = '', details = [], movies = [] }) => (
-  <div className="content-content">
-    <div className="banner">
-      <div className="title">{title}</div>
+  <div className={style.DetailsLayout}>
+    <div className={style.DetailsLayoutBanner}>
+      <div className={style.DetailsLayoutBannerBack}>
+        <Back />
+      </div>
+      <div className={style.DetailsLayoutBannerTitle}>{title}</div>
     </div>
-    <div className="info">
+    <div className={style.DetailsLayoutBannerInfo}>
       {
         description && (
-          <div className="description">
+          <div className={style.DetailsLayoutBannerDescription}>
             {description}
           </div>
         )
       }
 
-      <div className="details-content">
+      <div className={style.DetailsLayoutBannerContent}>
         {
           details.map(({ label, value }) => (
-            <div key={value} className="details-item">
-              <div className="item-label">{label}:</div>
-              <div className="item-text">{value}</div>
+            <div key={value} className={style.DetailsLayoutBannerItem}>
+              <div className={style.DetailsLayoutBannerItemLabel}>{label}:</div>
+              <div className={style.DetailsLayoutBannerItemText}>{value}</div>
             </div>
           ))
         }
       </div>
       {
         movies.length > 0 && (
-          <div className="details-links">
-            <div className="item-text">
+          <div className={style.DetailsLayoutBannerDetailsLink}>
+            <div className={style.DetailsLayoutBannerItemText}>
               Películas en las que apareció:
             </div>
             {movies.map(movie => (

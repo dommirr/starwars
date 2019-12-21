@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 
 const Filter = ({ onChange, value, placeholder }) => {
   return (
@@ -6,7 +7,7 @@ const Filter = ({ onChange, value, placeholder }) => {
       onChange={(event) => onChange(event.target.value)}
       type="text"
       value={value}
-      className="form-control"
+      className="Filter"
       placeholder={placeholder}
     />
   )

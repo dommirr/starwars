@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import SwapiService from 'services/SwapiService';
-import Loading from 'components/Loading';
 import DetailsLayout from 'components/DetailsLayout';
+import ContentLoading from 'components/ContentLoading';
 
 const CharacterDetails = () => {
   const { id } = useParams();
@@ -21,9 +21,7 @@ const CharacterDetails = () => {
     fetchCharacter();
   }, [id]);
   if (loading) return (
-    <div className="content-loading">
-      <Loading />
-    </div>
+    <ContentLoading />
   );
 
   const details = [

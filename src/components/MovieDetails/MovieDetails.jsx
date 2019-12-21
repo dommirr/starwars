@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import SwapiService from 'services/SwapiService';
-import Loading from 'components/Loading';
+import ContentLoading from 'components/ContentLoading';
 import DetailsLayout from 'components/DetailsLayout';
 
 const MovieDetails = () => {
   const { id } = useParams();
-
   const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -21,9 +20,7 @@ const MovieDetails = () => {
     fetchMovie();
   }, [id]);
   if (loading) return (
-    <div className="content-loading">
-      <Loading />
-    </div>
+    <ContentLoading />
   );
   const details = [
     {

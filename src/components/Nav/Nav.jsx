@@ -5,11 +5,11 @@ import './styles.css';
 
 const Nav = () => {
   return (
-    <div className="panelLeft">
+    <div className="Nav">
       <div className="logo">
         <img src={logo} alt="logo" className="logo-img" />
       </div>
-      <div className="AppTemplate-navbar">
+      <div className="Navbar-list">
         <CustomLink to="/movies" >Películas</CustomLink>
         <CustomLink to="/characters" >Personajes</CustomLink>
       </div>

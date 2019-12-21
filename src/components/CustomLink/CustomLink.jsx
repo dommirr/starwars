@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useRouteMatch } from "react-router-dom";
+import styles from './CustomLink.module.css';
 
 const CustomLink = ({ children, to, activeOnlyWhenExact = false }) => {
   const match = useRouteMatch({
@@ -8,7 +9,7 @@ const CustomLink = ({ children, to, activeOnlyWhenExact = false }) => {
   });
 
   return (
-    <Link className={`navbar-item ${match ? 'active' : ''}`} to={to}>{children}</Link>
+    <Link className={`${styles.CustomLink} ${match ? styles.active : ''}`} to={to}>{children}</Link>
   );
 }
 
