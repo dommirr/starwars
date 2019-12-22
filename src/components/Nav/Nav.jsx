@@ -1,15 +1,15 @@
 import React from 'react';
 import CustomLink from 'components/CustomLink';
 import logo from 'logo.png';
-import './styles.css';
+import styles from './Nav.module.css';
 
 const Nav = () => {
   return (
-    <div className="Nav">
-      <div className="logo">
-        <img src={logo} alt="logo" className="logo-img" />
+    <div className={styles.Nav}>
+      <div className={styles.NavLogo}>
+        <img src={logo} alt="logo" className={styles.NavLogoImg} />
       </div>
-      <div className="Navbar-list">
+      <div className={styles.NavList}>
         <CustomLink to="/movies" >Películas</CustomLink>
         <CustomLink to="/characters" >Personajes</CustomLink>
       </div>

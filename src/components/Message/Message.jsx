@@ -1,12 +1,12 @@
 import React from 'react';
 import { ReactComponent as Image } from './undraw_choice.svg';
-import './styles.css';
+import styles from './Message.module.css';
 
 const Message = () => {
   return (
-    <div className="content-message">
+    <div className={styles.MessageContent}>
       <Image />
-      <div className="item-text">Seleccione una opción en la lista</div>
+      <div>Seleccione una opción en la lista</div>
     </div>
   )
 }

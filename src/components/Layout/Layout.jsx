@@ -2,8 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import Loading from 'components/Loading';
 import { useLocation } from "react-router-dom";
 import Back from 'components/Back';
-
-import './styles.css';
+import styles from './Layout.module.css';
 
 const Layout = ({
   panelHeader,
@@ -36,26 +35,26 @@ const Layout = ({
   }
 
   return (
-    <div className="Layout">
-      <div className={`Layout-leftPanel ${!isDetail ? 'active' : ''} `}>
-        <div className="Layout-leftPanel-search">
-          <div className="Layout-leftPanel-Back">
+    <div className={styles.Layout}>
+      <div className={`${styles.LayoutLeftPanel} ${!isDetail ? ' active' : ''} `}>
+        <div className={`${styles.LayoutLeftPanelSearch}`}>
+          <div className={`${styles.LayoutLeftPanelBack}`}>
             <Back />
           </div>
-          <div className="search">
+          <div>
             {panelHeader}
           </div>
         </div>
-        <div className="Layout-leftPanel-navbar" ref={panelNode} onScroll={handleScroll}>
+        <div className={`${styles.LayoutLeftPanelNavbar}`} ref={panelNode} onScroll={handleScroll}>
           {panelList}
           {panelListLoading && (
-            <div className="navbar-item Layout-leftPanel-loading">
+            <div className={`${styles.LayoutLeftPanelLoading}`}>
               <Loading />
             </div>
           )}
         </div>
       </div>
-      <div className={`Layout-content ${isDetail ? 'active' : ''} `}>
+      <div className={`${styles.LayoutContent} ${isDetail ? ' active' : ''} `}>
         {children}
       </div>
     </div>

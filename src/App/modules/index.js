@@ -6,7 +6,6 @@ export {
   Movies,
 };
 
-
 export default {
   Characters,
   Movies,

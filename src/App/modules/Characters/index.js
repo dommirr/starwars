@@ -1,3 +1,1 @@
-import Characters from './Characters.container';
-
-export default Characters;
+export { default } from './Characters.container';

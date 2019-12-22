@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import SwapiService from 'services/SwapiService';
 import { Link } from "react-router-dom";
 
-import './styles.css';
-
 const LinkMovie = ({ id }) => {
   const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(false);

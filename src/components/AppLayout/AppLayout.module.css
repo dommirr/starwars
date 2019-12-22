@@ -8,14 +8,14 @@
    border-right: 1px solid #343434;
  }
 
-.leftPanel {
+.AppLayoutLeftPanel {
   flex: 1;
   background-color: #2C2D2D;
   min-height: 100vh;
   border-right: 1px solid #343434;
 }
 
-.content {
+.AppLayoutContent {
   flex: 3;
   display: flex;
   background-color: #2C2D2D;
@@ -27,11 +27,11 @@
 }
 
 @media (max-width: 425px) {  
-  .content {
+  .AppLayoutContent {
     display: none;
   }
 
-  .leftPanel {
+  .AppLayoutLeftPanel {
     display: none;
   }
   

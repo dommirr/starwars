@@ -1,3 +1,1 @@
-import CharacterDetails from './CharacterDetails.container';
-
-export default CharacterDetails;
+export { default } from './CharacterDetails.container';

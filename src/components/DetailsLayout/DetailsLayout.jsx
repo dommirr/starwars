@@ -23,7 +23,7 @@ const DetailsLayout = ({ title, description = '', details = [], movies = [] }) =
       <div className={style.DetailsLayoutBannerContent}>
         {
           details.map(({ label, value }) => (
-            <div key={value} className={style.DetailsLayoutBannerItem}>
+            <div key={label} className={style.DetailsLayoutBannerItem}>
               <div className={style.DetailsLayoutBannerItemLabel}>{label}:</div>
               <div className={style.DetailsLayoutBannerItemText}>{value}</div>
             </div>
