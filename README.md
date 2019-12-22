@@ -7,10 +7,16 @@ The demo is hosted in netlify service.
 
 [StarWars Finder](https://starwars-finder.netlify.com/)
 
-<p align="center">
-    <img align="center" src="public/favicon-2.png" alt="starwars finder" width="150" >
+<p >
+    <img  src="public/favicon-2.png" alt="starwars finder" width="150" >
 </p>
 
+### Preview Mobile:
+
+
+<p >
+    <img  src="mobile-low.gif" alt="starwars finder" width="200" >
+</p>
 
 
 ### Installation

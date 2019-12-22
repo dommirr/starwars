@@ -9,10 +9,10 @@ const AppLayout = ({ leftPanel, children }) => {
 
   return (
     <div className={styles.AppLayout}>
-      <div className={`${styles.AppLayoutLeftPanel} ${isList ? 'active' : ''} `}>
+      <div className={`${styles.AppLayoutLeftPanel} ${isList ? styles.active : ''} `}>
         {leftPanel}
       </div>
-      <div className={`${styles.AppLayoutContent} ${!isList ? 'active' : ''} `}>
+      <div className={`${styles.AppLayoutContent} ${!isList ? styles.active : ''} `}>
         {children}
       </div>
     </div>

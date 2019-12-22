@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import Loading from 'components/Loading';
 import { useLocation } from "react-router-dom";
 import Back from 'components/Back';
+import { isScrollEnd } from './utils';
+
 import styles from './Layout.module.css';
 
 const Layout = ({
@@ -18,7 +20,7 @@ const Layout = ({
 
   useEffect(() => {
     const element = panelNode.current;
-    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+    if (isScrollEnd(element)) {
       if (!panelListLoading) {
         onPanelScroll();
       }
@@ -26,8 +28,8 @@ const Layout = ({
   }, [panelListLoading, onPanelScroll]);
 
   const handleScroll = (e) => {
-    let element = e.target
-    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+    const element = e.target
+    if (isScrollEnd(element)) {
       if (!panelListLoading) {
         onPanelScroll();
       }
@@ -36,7 +38,7 @@ const Layout = ({
 
   return (
     <div className={styles.Layout}>
-      <div className={`${styles.LayoutLeftPanel} ${!isDetail ? ' active' : ''} `}>
+      <div className={`${styles.LayoutLeftPanel} ${!isDetail ? styles.active : ''} `}>
         <div className={`${styles.LayoutLeftPanelSearch}`}>
           <div className={`${styles.LayoutLeftPanelBack}`}>
             <Back />
@@ -54,7 +56,7 @@ const Layout = ({
           )}
         </div>
       </div>
-      <div className={`${styles.LayoutContent} ${isDetail ? ' active' : ''} `}>
+      <div className={`${styles.LayoutContent} ${isDetail ? styles.active : ''} `}>
         {children}
       </div>
     </div>

@@ -5,11 +5,23 @@ import DetailsLayout from 'components/DetailsLayout';
 
 const MovieDetails = ({ movie, loading, error, fetchMovieDetail }) => {
   const { id } = useParams();
+  const {
+    director,
+    producer,
+    release_date,
+    episode_id,
+    title,
+    description
+  } = movie || {};
+
 
   useEffect(() => {
     fetchMovieDetail(id);
   }, [id, fetchMovieDetail]);
 
+  if (error) return (
+    <h2>ups error :(</h2>
+  );
 
   if (loading) return (
     <ContentLoading />
@@ -18,27 +30,27 @@ const MovieDetails = ({ movie, loading, error, fetchMovieDetail }) => {
   const details = [
     {
       label: 'Director',
-      value: movie.director,
+      value: director,
     },
     {
       label: 'Productor',
-      value: movie.producer,
+      value: producer,
     },
     {
       label: 'Fecha de estreno',
-      value: movie.release_date,
+      value: release_date,
     },
     {
       label: 'Episodio número',
-      value: movie.episode_id,
+      value: episode_id,
     },
   ];
 
   return (
     <DetailsLayout
-      title={movie.title}
+      title={title}
       details={details}
-      description={movie.description}
+      description={description}
     />
   );
 }

@@ -7,7 +7,13 @@ import Layout from 'components/Layout';
 import Message from 'components/Message';
 
 let timer;
-const Characters = ({ characters, loading, fetchCharacters, fetchSearchCharacters, charactersFiltered, count }) => {
+const Characters = ({
+  characters,
+  loading,
+  fetchCharacters,
+  fetchSearchCharacters,
+  charactersFiltered,
+}) => {
 
   const [filterBy, setFilterBy] = useState('');
 
@@ -27,7 +33,9 @@ const Characters = ({ characters, loading, fetchCharacters, fetchSearchCharacter
     }, 500);
   }
 
-  const charactersToShow = filterBy === '' ? characters : charactersFiltered;
+  const filterEmpty = filterBy === '';
+
+  const charactersToShow = filterEmpty ? characters : charactersFiltered;
 
   const panelHeader = (
     <Filter
@@ -49,7 +57,7 @@ const Characters = ({ characters, loading, fetchCharacters, fetchSearchCharacter
       panelHeader={panelHeader}
       panelList={panelList}
       panelListLoading={loading}
-      onPanelScroll={fetchCharacters}
+      onPanelScroll={filterEmpty ? fetchCharacters : undefined}
     >
       <Switch>
         <Route exact path="/characters">
