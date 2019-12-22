@@ -5,6 +5,7 @@ import Filter from 'components/Filter';
 import CustomLink from 'components/CustomLink';
 import Layout from 'components/Layout';
 import Message from 'components/Message';
+import Error from 'components/Error';
 
 const Movies = ({ movies, error, fetchMovies, loading }) => {
   const [filterBy, setFilterBy] = useState('');
@@ -14,6 +15,11 @@ const Movies = ({ movies, error, fetchMovies, loading }) => {
       fetchMovies();
     }
   }, [fetchMovies, movies]);
+
+
+  if (error) return (
+    <Error onReload={fetchMovies} />
+  );
 
   const onChangeFilter = (filterBy) => setFilterBy(filterBy);
 

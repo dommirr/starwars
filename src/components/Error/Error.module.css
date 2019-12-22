@@ -1,0 +1,12 @@
+.Error {
+  display: flex;
+  flex: 1 1;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Reload {
+  cursor: pointer;
+}

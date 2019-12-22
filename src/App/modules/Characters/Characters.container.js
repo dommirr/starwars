@@ -5,7 +5,7 @@ import { fetchCharacters, fetchSearchCharacters } from './actions';
 const mapStateToProps = (state) => ({
   characters: state.characters.list,
   charactersFiltered: state.characters.list_filtered,
-  status: state.characters.status,
+  error: state.characters.error,
   loading: state.characters.loading,
   count: state.characters.count,
 });

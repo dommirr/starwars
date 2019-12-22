@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import ContentLoading from 'components/ContentLoading';
 import DetailsLayout from 'components/DetailsLayout';
+import Error from 'components/Error';
 
 const MovieDetails = ({ movie, loading, error, fetchMovieDetail }) => {
   const { id } = useParams();
@@ -20,7 +21,7 @@ const MovieDetails = ({ movie, loading, error, fetchMovieDetail }) => {
   }, [id, fetchMovieDetail]);
 
   if (error) return (
-    <h2>ups error :(</h2>
+    <Error onReload={() => fetchMovieDetail(id)} />
   );
 
   if (loading) return (

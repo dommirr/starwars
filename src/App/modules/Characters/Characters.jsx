@@ -5,11 +5,13 @@ import Filter from 'components/Filter';
 import CustomLink from 'components/CustomLink';
 import Layout from 'components/Layout';
 import Message from 'components/Message';
+import Error from 'components/Error';
 
 let timer;
 const Characters = ({
   characters,
   loading,
+  error,
   fetchCharacters,
   fetchSearchCharacters,
   charactersFiltered,
@@ -31,6 +33,10 @@ const Characters = ({
     timer = setTimeout(() => {
       fetchSearchCharacters(text);
     }, 500);
+  }
+
+  if (error) {
+    return <Error onReload={fetchCharacters} />;
   }
 
   const filterEmpty = filterBy === '';

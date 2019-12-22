@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import DetailsLayout from 'components/DetailsLayout';
 import ContentLoading from 'components/ContentLoading';
+import Error from 'components/Error';
 
 const CharacterDetails = ({ character, loading, onChangeId, error }) => {
   const { id } = useParams();
@@ -10,6 +11,10 @@ const CharacterDetails = ({ character, loading, onChangeId, error }) => {
   useEffect(() => {
     onChangeId(id);
   }, [id, onChangeId]);
+
+  if (error) return (
+    <Error onReload={() => onChangeId(id)} />
+  );
 
   if (loading) return (
     <ContentLoading />
