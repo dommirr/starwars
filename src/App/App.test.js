@@ -16,7 +16,7 @@ jest.mock('services/SwapiService', () => ({
     description: 'description',
     id: '1',
     release_date: '1977-05-25',
-    episode_id: '4',
+    episode_id: 4,
   }),
 
 
