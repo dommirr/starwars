@@ -1,6 +1,6 @@
 # StarWars Finder
 
-[![Build Status](https://travis-ci.com/dommirr/starwars.svg?branch=master)](https://travis-ci.com/dommirr/starwars) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dommirr/starwars/blob/master/LICENSE)
+[![Build Status](https://travis-ci.com/dommirr/starwars.svg?branch=master)](https://travis-ci.com/dommirr/starwars) (https://coveralls.io/repos/github/dommirr/starwars/badge.svg?branch=master)](https://coveralls.io/github/dommirr/starwars?branch=master) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dommirr/starwars/blob/master/LICENSE)
 
 Is an app that use the [swapi](https://swapi.co/) API to find characters and movies information from the saga.
 ### Online Demo
