@@ -10,4 +10,4 @@ const mapStateToProps = (state) => ({
   count: state.characters.count,
 });
 
-export default connect(mapStateToProps, { fetchCharacters, fetchSearchCharacters })(Characters);
+export default connect(mapStateToProps, { onMount: fetchCharacters, fetchSearchCharacters })(Characters);

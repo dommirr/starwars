@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route } from "react-router-dom";
+import PropTypes from 'prop-types';
+
 import CharacterDetails from './components/CharacterDetails';
 import Filter from 'components/Filter';
 import CustomLink from 'components/CustomLink';
@@ -12,7 +14,7 @@ const Characters = ({
   characters,
   loading,
   error,
-  fetchCharacters,
+  onMount,
   fetchSearchCharacters,
   charactersFiltered,
 }) => {
@@ -21,9 +23,9 @@ const Characters = ({
 
   useEffect(() => {
     if (characters.length === 0) {
-      fetchCharacters()
+      onMount()
     }
-  }, [fetchCharacters, characters]);
+  }, [onMount, characters]);
 
   const onChangeFilter = (text) => {
     if (timer) {
@@ -36,7 +38,7 @@ const Characters = ({
   }
 
   if (error) {
-    return <Error onReload={fetchCharacters} />;
+    return <Error onReload={onMount} />;
   }
 
   const filterEmpty = filterBy === '';
@@ -63,7 +65,7 @@ const Characters = ({
       panelHeader={panelHeader}
       panelList={panelList}
       panelListLoading={loading}
-      onPanelScroll={filterEmpty ? fetchCharacters : undefined}
+      onPanelScroll={filterEmpty ? onMount : undefined}
     >
       <Switch>
         <Route exact path="/characters">
@@ -76,5 +78,14 @@ const Characters = ({
     </Layout>
   );
 };
+
+Characters.propTypes = {
+  characters: PropTypes.array,
+  loading: PropTypes.bool,
+  error: PropTypes.bool,
+  onMount: PropTypes.func.isRequired,
+  fetchSearchCharacters: PropTypes.func.isRequired,
+  charactersFiltered: PropTypes.array.isRequired,
+}
 
 export default Characters;

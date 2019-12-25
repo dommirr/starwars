@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import LinkMovie from 'components/LinkMovie';
 import Back from 'components/Back';
 import style from './DetailsLayout.module.css';
@@ -46,5 +48,12 @@ const DetailsLayout = ({ title, description = '', details = [], movies = [] }) =
     </div>
   </div>
 );
+
+DetailsLayout.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  details: PropTypes.array,
+  movies: PropTypes.array,
+};
 
 export default DetailsLayout;

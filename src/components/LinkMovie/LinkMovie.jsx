@@ -9,13 +9,20 @@ const LinkMovie = ({ id }) => {
   // De forma similar a componentDidMount y componentDidUpdate
   useEffect(() => {
     setLoading(true);
+    let isCancelled = false;
     const fetchMovie = async () => {
       const movie = await SwapiService.getMovieById(id);
-      setLoading(false);
-      setMovie(movie);
+      if (!isCancelled) {
+        setLoading(false);
+        setMovie(movie);
+      }
     };
     fetchMovie();
+    return () => {
+      isCancelled = true;
+    };
   }, [id]);
+
   if (loading) return (
     <p>cargando...</p>
   );

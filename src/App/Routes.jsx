@@ -6,7 +6,7 @@ import Nav from 'components/Nav';
 
 import { Movies, Characters } from './modules';
 
-import { isMobile } from 'utils';
+import { isMobile } from 'utils/dom';
 
 const AppRouter = () => (
   <Router>

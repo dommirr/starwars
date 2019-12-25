@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route } from "react-router-dom";
+import PropTypes from 'prop-types';
+
 import MovieDetails from './components/MovieDetails';
 import Filter from 'components/Filter';
 import CustomLink from 'components/CustomLink';
@@ -7,18 +9,18 @@ import Layout from 'components/Layout';
 import Message from 'components/Message';
 import Error from 'components/Error';
 
-const Movies = ({ movies, error, fetchMovies, loading }) => {
+const Movies = ({ movies, error, onMount, loading }) => {
   const [filterBy, setFilterBy] = useState('');
 
   useEffect(() => {
     if (movies.length === 0) {
-      fetchMovies();
+      onMount();
     }
-  }, [fetchMovies, movies]);
+  }, [onMount, movies]);
 
 
   if (error) return (
-    <Error onReload={fetchMovies} />
+    <Error onReload={onMount} />
   );
 
   const onChangeFilter = (filterBy) => setFilterBy(filterBy);
@@ -57,5 +59,12 @@ const Movies = ({ movies, error, fetchMovies, loading }) => {
     </Layout>
   )
 };
+
+Movies.propTypes = {
+  movies: PropTypes.array,
+  error: PropTypes.bool,
+  onMount: PropTypes.func.isRequired,
+  loading: PropTypes.bool,
+}
 
 export default Movies;

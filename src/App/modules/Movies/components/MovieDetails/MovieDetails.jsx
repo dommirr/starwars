@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useParams } from "react-router-dom";
+import PropTypes from 'prop-types';
+
 import ContentLoading from 'components/ContentLoading';
 import DetailsLayout from 'components/DetailsLayout';
 import Error from 'components/Error';
 
-const MovieDetails = ({ movie, loading, error, fetchMovieDetail }) => {
+const MovieDetails = ({ movie, loading, error, onMount }) => {
   const { id } = useParams();
   const {
     director,
@@ -17,11 +19,11 @@ const MovieDetails = ({ movie, loading, error, fetchMovieDetail }) => {
 
 
   useEffect(() => {
-    fetchMovieDetail(id);
-  }, [id, fetchMovieDetail]);
+    onMount(id);
+  }, [id, onMount]);
 
   if (error) return (
-    <Error onReload={() => fetchMovieDetail(id)} />
+    <Error onReload={() => onMount(id)} />
   );
 
   if (loading) return (
@@ -55,5 +57,19 @@ const MovieDetails = ({ movie, loading, error, fetchMovieDetail }) => {
     />
   );
 }
+
+MovieDetails.propTypes = {
+  movie: PropTypes.shape({
+    director: PropTypes.string,
+    producer: PropTypes.string,
+    release_date: PropTypes.string,
+    episode_id: PropTypes.number,
+    title: PropTypes.string,
+    description: PropTypes.string,
+  }),
+  loading: PropTypes.bool,
+  error: PropTypes.bool,
+  onMount: PropTypes.func.isRequired
+};
 
 export default MovieDetails;

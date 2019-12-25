@@ -1,7 +1,5 @@
 export const isScrollEnd = (element) => {
-  const a = element.scrollHeight;
-  const b = element.scrollTop;
-  const c = element.clientHeight;
-  const d = a - b - c;
-  return d < 50;
+  const { scrollHeight, scrollTop, clientHeight } = element;
+  const result = scrollHeight - scrollTop - clientHeight;
+  return result < 50;
 }

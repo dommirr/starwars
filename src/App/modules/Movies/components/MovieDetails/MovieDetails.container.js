@@ -8,4 +8,4 @@ const mapStateToProps = (state) => ({
   error: state.movies.details.error,
 });
 
-export default connect(mapStateToProps, { fetchMovieDetail })(MovieDetails);
+export default connect(mapStateToProps, { onMount: fetchMovieDetail })(MovieDetails);
