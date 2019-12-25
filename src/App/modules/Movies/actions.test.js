@@ -43,7 +43,7 @@ describe('Actions Movies', () => {
     expect(fetchMoviesError()).toEqual(expected);
   });
 
-  it('should fetchMovies dispatch fecthstart and fecthSuccess', async () => {
+  it('should fetchMovies dispatch fetchstart and fecthSuccess', async () => {
     SwapiService.getMovies = () => Promise.resolve([{ title: 'movie 1' }]);
     const dispatch = jest.fn();
     await fetchMovies()(dispatch);
@@ -52,7 +52,7 @@ describe('Actions Movies', () => {
     expect(dispatch).toBeCalledWith({ type: "FETCH_MOVIES_SUCCESS", movies: [{ title: 'movie 1' }] });
   });
 
-  it('should fetchMovies dispatch fecthstart and fecthError', async () => {
+  it('should fetchMovies dispatch fetchstart and fecthError', async () => {
     SwapiService.getMovies = () => Promise.reject({ error: 'error' });
     const dispatch = jest.fn();
     await fetchMovies(1)(dispatch);
