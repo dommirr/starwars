@@ -54,6 +54,7 @@ const MovieDetails = ({ movie, loading, error, onMount }) => {
       title={title}
       details={details}
       description={description}
+      to="/movies"
     />
   );
 }

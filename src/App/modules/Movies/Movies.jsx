@@ -47,6 +47,7 @@ const Movies = ({ movies, error, onMount, loading }) => {
       panelHeader={panelHeader}
       panelList={panelList}
       panelListLoading={loading}
+      back={"/"}
     >
       <Switch>
         <Route path="/movies/:id">

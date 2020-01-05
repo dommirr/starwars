@@ -1,12 +1,12 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import style from './Back.module.css';
 
-const goBack = () => {
-  window.history.back();
-}
+const Back = ({ to = '/' }) => (
+  <Link to={to}>
+    <div className={style.Back} />
+  </Link>
 
-const Back = () => (
-  <div className={style.Back} onClick={goBack} />
 )
 
 export default Back;

@@ -21,11 +21,23 @@ const initialState = {
 const movieReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_MOVIES_START:
-      return { ...state, error: false, loading: true };
+      return {
+        ...state,
+        error: false,
+        loading: true
+      };
     case FETCH_MOVIES_SUCCESS:
-      return { ...state, loading: false, list: action.movies };
+      return {
+        ...state,
+        loading: false,
+        list: action.movies
+      };
     case FETCH_MOVIES_ERROR:
-      return { ...state, error: true, loading: false };
+      return {
+        ...state,
+        error: true,
+        loading: false
+      };
     case FETCH_MOVIE_DETAILS_START:
       return {
         ...state,

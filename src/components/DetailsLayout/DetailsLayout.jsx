@@ -5,11 +5,11 @@ import LinkMovie from 'components/LinkMovie';
 import Back from 'components/Back';
 import style from './DetailsLayout.module.css';
 
-const DetailsLayout = ({ title, description = '', details = [], movies = [] }) => (
+const DetailsLayout = ({ title, description = '', details = [], movies = [], to }) => (
   <div className={style.DetailsLayout}>
     <div className={style.DetailsLayoutBanner}>
       <div className={style.DetailsLayoutBannerBack}>
-        <Back />
+        <Back to={to} />
       </div>
       <div className={style.DetailsLayoutBannerTitle}>{title}</div>
     </div>

@@ -6,6 +6,18 @@ import Error from 'components/Error';
 
 const CharacterDetails = ({ character, loading, onChangeId, error }) => {
   const { id } = useParams();
+  const {
+    id: characterId,
+    name,
+    movies,
+    height,
+    eye_color,
+    hair_color,
+    gender,
+    skin_color,
+    mass,
+    birth_year,
+  } = character || {};
 
   // De forma similar a componentDidMount y componentDidUpdate
   useEffect(() => {
@@ -16,45 +28,46 @@ const CharacterDetails = ({ character, loading, onChangeId, error }) => {
     <Error onReload={() => onChangeId(id)} />
   );
 
-  if (loading) return (
+  if (loading || id !== characterId) return (
     <ContentLoading />
   );
 
   const details = [
     {
       label: 'Altura (cm)',
-      value: character.height
+      value: height
     },
     {
       label: 'Color de ojos',
-      value: character.eye_color
+      value: eye_color
     },
     {
       label: 'Color de cabello',
-      value: character.hair_color
+      value: hair_color
     },
     {
       label: 'Género',
-      value: character.gender
+      value: gender
     },
     {
       label: 'Color de piel',
-      value: character.skin_color
+      value: skin_color
     },
     {
       label: 'Peso (kg)',
-      value: character.mass
+      value: mass
     }, {
       label: 'Año de nacimiento',
-      value: character.birth_year
+      value: birth_year
     }
   ];
 
   return (
     <DetailsLayout
-      title={character.name}
+      title={name}
       details={details}
-      movies={character.movies}
+      movies={movies}
+      to="/characters"
     />
   );
 }

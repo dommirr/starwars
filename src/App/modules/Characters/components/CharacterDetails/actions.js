@@ -19,7 +19,9 @@ export const fetchCharacterDetailsError = () => ({
   type: FETCH_CHARACTERS_DETAILS_ERROR,
 });
 
-export const fetchCharacterDetails = (id) => async dispatch => {
+export const fetchCharacterDetails = (id) => async (dispatch, getState) => {
+  const { characters: { details: { info: { id: characterId } } } } = getState();
+  if (characterId === id) return null;
   dispatch(fetchCharacterDetailsStart());
   try {
     const character = await SwapiService.getCharacterById(id);
