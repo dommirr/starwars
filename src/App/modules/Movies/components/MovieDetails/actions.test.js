@@ -47,7 +47,8 @@ describe('Actions Movie Details', () => {
   it('should fetchMovieDetail dispatch fetchstart and fecthSuccess', async () => {
     SwapiService.getMovieById = () => Promise.resolve({ title: 'movie 1' });
     const dispatch = jest.fn();
-    await fetchMovieDetail(1)(dispatch);
+    const getState = () => ({ movies: { details: { info: { id: '1' } } }, });
+    await fetchMovieDetail(1)(dispatch, getState);
     expect(dispatch).toHaveBeenCalledTimes(2);
     expect(dispatch).toBeCalledWith({ type: "FETCH_MOVIE_DETAILS_START" });
     expect(dispatch).toBeCalledWith({ type: "FETCH_MOVIE_DETAILS_SUCCESS", info: { title: 'movie 1' } });
@@ -56,7 +57,8 @@ describe('Actions Movie Details', () => {
   it('should fetchMovieDetail dispatch fetchstart and fecthError', async () => {
     SwapiService.getMovieById = () => Promise.reject({ error: 'error' });
     const dispatch = jest.fn();
-    await fetchMovieDetail(1)(dispatch);
+    const getState = () => ({ movies: { details: { info: { id: '1' } } }, });
+    await fetchMovieDetail(1)(dispatch, getState);
     expect(dispatch).toHaveBeenCalledTimes(2);
     expect(dispatch).toBeCalledWith({ type: "FETCH_MOVIE_DETAILS_START" });
     expect(dispatch).toBeCalledWith({ type: "FETCH_MOVIE_DETAILS_ERROR" });

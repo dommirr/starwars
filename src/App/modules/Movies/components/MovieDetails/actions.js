@@ -19,7 +19,9 @@ export const fetchMovieDetailError = () => ({
   type: FETCH_MOVIE_DETAILS_ERROR,
 });
 
-export const fetchMovieDetail = (id) => async dispatch => {
+export const fetchMovieDetail = (id) => async (dispatch, getState) => {
+  const { movies: { details: { info: { id: movieId } } } } = getState();
+  if (movieId === id) return null;
   dispatch(fetchMovieDetailStart());
   try {
     const movie = await SwapiService.getMovieById(id);

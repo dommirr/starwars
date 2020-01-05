@@ -9,6 +9,7 @@ import Error from 'components/Error';
 const MovieDetails = ({ movie, loading, error, onMount }) => {
   const { id } = useParams();
   const {
+    id: movieId,
     director,
     producer,
     release_date,
@@ -26,7 +27,7 @@ const MovieDetails = ({ movie, loading, error, onMount }) => {
     <Error onReload={() => onMount(id)} />
   );
 
-  if (loading) return (
+  if (loading || movieId !== id) return (
     <ContentLoading />
   );
 
