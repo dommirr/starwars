@@ -1,6 +1,6 @@
 
 
-const url = 'https://swapi.co/api';
+const url = 'https://swapi.dev/api';
 
 const reg = new RegExp('/(?:.(?!/(.+)/))+$');
 
